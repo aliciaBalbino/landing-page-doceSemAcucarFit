@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title> Doce Zero Açúcar — Landing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ====== Esteira (carrossel contínuo) ====== */
+    :root{
+      --esteira-speed: 14s; /* tempo do loop — ajuste se quiser mais lento/rápido */
+      --card-w: 280px;      /* largura base do card no desktop */
+    }
+    @keyframes esteira {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); } /* anda metade porque a lista está duplicada */
+    }
+    .esteira-mask {
+      /* degrade suave nas laterais p/ esconder início/fim do loop */
+      -webkit-mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+              mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+    }
+    .esteira-track {
+      animation: esteira var(--esteira-speed) linear infinite;
+      will-change: transform;
+    }
+    /* Pausa opcional ao hover (remova se não quiser) */
+    .esteira:hover .esteira-track { animation-play-state: paused; }
+
+    /* Acessibilidade: reduz animação se o usuário preferir menos movimento */
+    @media (prefers-reduced-motion: reduce) {
+      .esteira-track { animation-duration: 120s; }
+    }
+  </style>
+  
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '745398605233665');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
+
+  
+</head>
+<body class="min-h-screen bg-white text-neutral-900 antialiased">
+  <!-- HERO -->
+  <header class="relative overflow-hidden bg-neutral-50">
+    <div class="absolute inset-0 bg-[radial-gradient(80rem_40rem_at_-10%_-10%,#ffffff_10%,#f5f5f5_55%,#f2f2f2_90%)]"></div>
+    <div class="relative max-w-7xl mx-auto px-6 py-14 lg:py-20 grid lg:grid-cols-2 gap-10 items-center">
+      <!-- Texto -->
+      <div>
+        
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-rose-600">
+          Zero açúcar, baixa caloria e muito sabor! ✨
+        </h1>
+        <p class="mt-2 text-xl sm:text-2xl font-semibold text-neutral-900 leading-snug">
+          Já conhece a novidade incrível de  morango do amor proteico, de pote? 
+Eu amo comer doces saudáveis, e por isso decidi compartilhar com você minhas melhores opções de sobremesas deliciosas para  saciar também sua vontade.
+Aqui você terá 110 Receitas saudáveis para adoçar seu dia sem culpa, que são práticas e fáceis de fazer.  Você vai amar!
+        </p>
+        <p class="mt-5 text-lg text-neutral-700">
+          Com opções sem glúten, e sem lactose, todas sem açúcar
+        </p>
+        <a id="scroll-cta" href="#galeria" class="mt-8 inline-flex items-center gap-2 rounded-full bg-neutral-900 text-white px-5 py-3 text-sm font-semibold hover:opacity-90">
+          Veja o que você vai aproveitar:
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </a>
+      </div>
+      <!-- Imagem hero -->
+      <div class="relative">
+        <img src="./imagens/imagemsegurando2.jpg"
+             alt="Confeiteira preparando massa"
+             class="w-full h-[420px] sm:h-[520px] object-cover rounded-3xl shadow-2xl ring-1 ring-black/5">
+        <!-- brilho sutil -->
+        <div class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-white/0 via-white/0 to-white/20"></div>
+      </div>
+    </div>
+
+    <!-- Divisor para separar visualmente -->
+    <svg aria-hidden="true" viewBox="0 0 1440 80" class="w-full text-white">
+      <path fill="currentColor" d="M0,64L80,69.3C160,75,320,85,480,85.3C640,85,800,75,960,69.3C1120,64,1280,64,1360,64L1440,64L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80C320,80,160,80,80,80L0,80Z"></path>
+    </svg>
+  </header>
+
+  <!-- GALERIA / ESTEIRA -->
+  <section id="galeria" class="bg-white pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-center">Delícias em destaque</h2>
+
+      <!-- Container da esteira -->
+      <div class="esteira relative">
+        <div class="esteira-mask overflow-hidden">
+          <!-- Faixa de itens (duplicada para loop perfeito) -->
+          <ul class="esteira-track flex items-center gap-5 md:gap-6 w-[200%]">
+            <!-- ===== PRIMEIRO LOTE: coloque suas 7 IMAGENS AQUI ===== -->
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="./imagens/doce1-2.jpg"
+                     alt="Bolo 1" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="./imagens/doce2-1.PNG"
+                     alt="Bolo 2" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="./imagens/doce3.jpg"
+                     alt="Bolo 3" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="./imagens/doce4.jpg"
+                     alt="Bolo 4" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="./imagens/doce5.jpg"
+                     alt="Bolo 5" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="./imagens/doce6.jpg"
+                     alt="Bolo 6" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="./imagens/doce7.jpg"
+                     alt="Bolo 7" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+
+            <!-- ===== SEGUNDO LOTE (CÓPIA) — necessário para o loop perfeito ===== -->
+            <!-- Copia e cola as MESMAS 7 imagens abaixo -->
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src= "imagens/doce1.png"
+                     alt="Bolo 1" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="imagens/doce2-1.PNG"
+                     alt="Bolo 2" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="imagens/doce3.jpg"
+                     alt="Bolo 3" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="imagens/doce4.jpg"
+                     alt="Bolo 4" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="imagens/doce5.jpg"
+                     alt="Bolo 5" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="imagens/doce6.jpg"
+                     alt="Bolo 6" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+            <li class="shrink-0 w-[70vw] sm:w-[46vw] md:w-[calc(var(--card-w))]">
+              <figure class="rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 bg-white">
+                <img src="imagens/doce7.jpg"
+                     alt="Bolo 7" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Prova social abaixo do carrossel -->
+<div class="mt-12 px-4 flex justify-center">
+  <img src="./imagens/provabolo.png" 
+       alt="Prova social"
+       class="w-full max-w-none rounded-2xl shadow-lg ring-1 ring-neutral-200"
+       loading="lazy" />
+</div>
+
+      <h3 class="mt-8 text-center text-xl sm:text-2xl font-bold text-[#E11D48] leading-snug max-w-4xl mx-auto">
+        são mais de 110 receitas <u>ZERO AÇÚCAR, COM BAIXA CALORIA,</u>com opções sem glúten e lactose
+      </h3>
+      <div class="mt-12 sm:mt-16 text-center">
+  <a 
+    href="https://pay.hotmart.com/T102320219D?bid=1762220701655"
+    class="inline-flex mx-auto items-center gap-2 rounded-full bg-[#17A54C] text-white px-8 py-4 text-2xl sm:text-3xl font-bold shadow-lg hover:opacity-90 active:scale-95 transition transform focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-[#17A54C]"
+  >
+    Quero minhas sobremesas fit agora
+  </a>
+</div>
+
+    </div>
+  </section>
+
+  <!-- BÔNUS -->
+  <section id="bonus" class="bg-white pt-6 pb-6">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8">Bônus Exclusivos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="rounded-2xl overflow-hidden bg-white shadow-lg ring-1 ring-neutral-200">
+          <div id="bonus-video-1" class="relative overflow-hidden rounded-t-2xl">
+  <div class="w-full aspect-video">
+    <iframe 
+      width="100%" 
+      height="100%" 
+      src="https://www.youtube.com/embed/f66cXBSpht8?rel=0" 
+      title="Dicas de emagrecimento com nutricionista Cássia Cristina" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen>
+    </iframe>
+  </div>
+  
+</div>
+          <div class="p-4">
+            <p class="text-base sm:text-lg font-semibold text-neutral-900 leading-snug">Vídeo aulas com dicas de emagrecimento com nutricionista Cássia Cristina.</p>
+            <ul class="mt-2 text-sm text-neutral-700 space-y-1">
+              <li>✅ Dicas certeiras para perder peso com saúde</li>
+              <li>✅ Assista quando e onde quiser</li>
+              <li>✅ É como ter uma nutri ao seu lado!</li>
+            </ul>
+          </div>
+        </article>
+        <article class="rounded-2xl overflow-hidden bg-white shadow-lg ring-1 ring-neutral-200">
+          <img src="./imagens/bonus2.jpg" alt="Lista de compras" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+          <div class="p-4">
+            <p class="text-base sm:text-lg font-semibold text-neutral-900 leading-snug">Lista de compras das receitas</p>
+            <ul class="mt-2 text-sm text-neutral-700 space-y-1">
+              <li>✅ Tudo o que precisa em um só lugar</li>
+              <li>✅ Facilita sua rotina e economiza tempo</li>
+            </ul>
+          </div>
+        </article>
+        <article class="rounded-2xl overflow-hidden bg-white shadow-lg ring-1 ring-neutral-200">
+          <img src="./imagens/bonus3.jpg" alt="Dicas de exercícios para queima de calorias em casa" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+          <div class="p-4">
+            <p class="text-base sm:text-lg font-semibold text-neutral-900 leading-snug">Dicas de exercícios para queima de calorias em casa</p>
+            <ul class="mt-2 text-sm text-neutral-700 space-y-1">
+              <li>✅  Faça de casa, sem equipamentos</li>
+              <li>✅  Melhora o corpo e a autoestima</li>
+              <li>✅  Resultados reais em poucos minutos por dia</li>
+            </ul>
+          </div>
+        </article>
+        <article class="rounded-2xl overflow-hidden bg-white shadow-lg ring-1 ring-neutral-200">
+          <img src="./imagens/bonus4.jpg" alt="Combos de receitas de chás funcionais" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+          <div class="p-4">
+            <p class="text-base sm:text-lg font-semibold text-neutral-900 leading-snug">Combos de receitas de chás funcionais</p>
+              <ul class="mt-2 text-sm text-neutral-700 space-y-1">
+              <li>✅ Ajuda a desinchar e acelerar o metabolismo</li>
+              <li>✅ Chás práticos, saborosos e relaxantes</li>
+            </ul>
+          </div>
+        </article>
+        <article class="rounded-2xl overflow-hidden bg-white shadow-lg ring-1 ring-neutral-200">
+          <img src="./imagens/bonus5.jpg" alt="Receitas com calorias por porção já calculadas" class="h-48 sm:h-56 md:h-64 w-full object-cover" />
+          <div class="p-4">
+            <p class="text-base sm:text-lg font-semibold text-neutral-900 leading-snug">As receitas têm a quantidade de calorias por porção já calculadas.</p>
+            <ul class="mt-2 text-sm text-neutral-700 space-y-1">
+              <li>✅ Controle total do que consome</li>
+              <li>✅ Emagreça com consciência e equilíbrio</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="comprar" class="relative w-full max-w-3xl mx-auto mt-6">
+
+    <!-- Imagem como fundo -->
+    <img 
+      src="./imagens/fotodobotao2.png" 
+      class="w-full rounded-2xl shadow-lg"
+      alt="Oferta bônus exclusivos"
+    /> 
+  
+    <!-- Botão sobre a imagem e pulsando -->
+<a href="https://pay.hotmart.com/T102320219D?bid=1762220701655"
+    class="absolute bg-gradient-to-r from-[#17A54C] to-[#0F7F39] text-white
+      px-4 py-2 rounded-xl font-bold tracking-wide uppercase text-xs sm:text-sm
+      shadow-lg hover:opacity-90 transition animate-pulse-scale"
+    style="top: 36%; left: 29%; transform: translate(-50%, -50%);">
+    Baixar agora para <br> adoçar meu dia!
+</a>
+
+
+  
+  </section>  
+  
+  <style>
+  @keyframes pulseScale {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+  }
+  .animate-pulse-scale {
+    animation: pulseScale 1.4s infinite ease-in-out;
+  }
+  
+  </style>
+
+ <style>
+  /* Animação original */
+  @keyframes pulseScale {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+  }
+  .animate-pulse-scale {
+    animation: pulseScale 1.4s infinite ease-in-out;
+  }
+
+  /* Nova animação idêntica, independente */
+  @keyframes pulseScale2 {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+  }
+  .animate-pulse-scale-2 {
+    animation: pulseScale2 1.4s infinite ease-in-out;
+    margin-left: 160px;
+    white-space: nowrap; /* impede quebra de linha no texto */
+  }
+</style>
+
+
+
+
+  
+  <div class="relative rounded-2xl overflow-hidden shadow-lg ring-1 ring-neutral-200 mt-6 max-w-sm mx-auto transition-all duration-500" id="video-container">
+    <img id="thumbnail" src="./video/capa2.jpg" alt="Capa do vídeo" class="w-full h-96 object-cover" />
+  
+    <div id="youtube-wrapper" class="hidden w-full aspect-[9/16]">
+        <iframe 
+            id="video-yt"
+            width="100%" 
+            height="100%" 
+            src="" 
+            title="Receitas de Doces Zero Açúcar!" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+    </div>
+  
+    <button id="play-button" type="button" class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 focus:outline-none">
+        <span class="flex items-center justify-center h-14 w-14 rounded-full bg-[#E4375D] shadow-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="white">
+                <path d="M8 5v14l11-7z" />
+            </svg>
+        </span>
+    </button>
+</div>
+
+<script>
+    (function() {
+        const playButton = document.getElementById("play-button");
+        const thumbnail = document.getElementById("thumbnail");
+        const container = document.getElementById("video-container");
+        const youtubeWrapper = document.getElementById("youtube-wrapper");
+        const iframe = document.getElementById("video-yt");
+        const videoID = "-LV35YIyoSA"; 
+
+        playButton.addEventListener("click", () => {
+            playButton.style.display = "none";
+            thumbnail.style.display = "none";
+            youtubeWrapper.classList.remove("hidden");
+            iframe.src = `https://www.youtube.com/embed/${videoID}?autoplay=1&rel=0`;
+            container.classList.remove("max-w-sm");
+            container.classList.add("max-w-md");
+        });
+    })();
+</script>
+  
+  
+ 
+<div class="max-w-7xl mx-auto px-6 mt-10 mb-6 w-full flex flex-col justify-center items-center text-center">
+  <!-- Botão centralizado -->
+  <div class="w-full flex justify-center">
+   <a 
+  href="https://pay.hotmart.com/T102320219D?bid=1762220701655"
+  class="bg-gradient-to-r from-[#17A54C] to-[#0F7F39] text-white 
+    px-6 py-3 rounded-lg font-extrabold tracking-wide uppercase text-[10px] sm:text-xs
+    shadow hover:opacity-90 transition animate-pulse-scale-2 mb-4 text-center">
+  Baixar agora para <br> adoçar meu dia!
+</a>
+
+  </div>
+
+  <!-- Selo -->
+  <img 
+    src="./imagens/Selo-de-garantia-rosa.webp" 
+    alt="Selo de garantia" 
+    class="h-40 sm:h-48 md:h-56 lg:h-64 object-contain mt-2" 
+  />
+</div>
+
+
+  
+
+  <!-- Rodapé simples -->
+  <footer class="border-t bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-6 py-8 text-sm text-neutral-600">
+      © 2025 Doce Zero Açúcar 
+    </div>
+  </footer>
+
+</body>
+</html>
+
+  
+  
