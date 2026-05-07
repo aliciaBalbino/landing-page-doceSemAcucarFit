@@ -2,6 +2,8 @@
 🪧 Landing page de vendas desenvolvida com HTML5 e CSS3 para conversão em vendas no nicho fitness/ comida clean. Criação feita por outro desenvolvedor 
 e evolução técnica realizada por mim para otimização de interface.
 
+🤳📲 O maior foco do design é para visualização em mobile.
+
 ↩️ **Mudanças feitas por mim no HTML:**
 > Aumento do tamanho dos botões de compra 
 
